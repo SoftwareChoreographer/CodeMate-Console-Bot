@@ -14,7 +14,7 @@ public class QuizService {
         System.out.println("2. To make code run faster");
         System.out.println("3. To organize code into reusable blocks");
         System.out.println("4. Just for fun");
-        System.out.print("Your answer: ");
+        System.out.print(userName + ", your answer: ");
 
         int answer = readInt(scanner);
 
