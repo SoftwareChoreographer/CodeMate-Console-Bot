@@ -1,3 +1,5 @@
+package bot;
+
 import bot.services.AgeGuessService;
 import bot.services.CountingService;
 import bot.services.QuizService;
