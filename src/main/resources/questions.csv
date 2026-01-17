@@ -1,0 +1,21 @@
+questionType,questionText,leftOperand,rightOperand,operator,expectedAnswer
+MATH,5 + 3,5,3,ADD,8
+MATH,true && false,true,false,AND,false
+MATH,10 - 4,10,4,SUBTRACT,6
+MATH,6 * 7,6,7,MULTIPLY,42
+MATH,20 / 5,20,5,DIVIDE,4
+MATH,10 % 3,10,3,MODULO,1
+MATH,true || false,true,false,OR,true
+MATH,false ^ true,false,true,XOR,true
+MATH,true ^ true,true,true,XOR,false
+MATH,8 + 6,8,6,ADD,14
+PROGRAMMING,What is the result of 3 > 2?,,,,true
+PROGRAMMING,Which keyword declares a class in Java?,,,,class
+PROGRAMMING,Which method is the entry point in Java?,,,,main
+PROGRAMMING,What symbol ends a statement in Java?,,,,;
+PROGRAMMING,What keyword defines a constant in Java?,,,,final
+PROGRAMMING,Which operator checks equality?,,,,==
+PROGRAMMING,What keyword makes a method accessible from anywhere?,,,,public
+PROGRAMMING,What is the logical AND operator in Java?,,,,&&
+PROGRAMMING,What symbol represents logical OR?,,,,||
+PROGRAMMING,How do you create a new object of a class?,,,,new

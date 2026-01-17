@@ -1,34 +1,69 @@
 package bot.services;
 
-import java.util.Scanner;
+import bot.data.QuestionSource;
+import bot.data.QuestionData;
+import bot.factories.QuestionFactory;
+import bot.models.Question;
+import bot.models.QuestionType;
 
-import static bot.utils.InputHelper.readInt;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+/**
+ * QuizService manages quiz sessions for a specific QuestionType.
+ * Features:
+ * - Loads and filters questions from a QuestionSource
+ * - Converts raw data to Question objects via QuestionFactory
+ * - Randomizes questions and limits to 5 per session
+ * - Delegates answer checking to each Question
+ */
 public class QuizService {
-    private int quizScore = 0;
 
-    public void runQuiz(Scanner scanner, String userName) {
-        System.out.println("\n--- Programming Quiz ---");
-        System.out.println("Why do we use methods in programming?");
-        System.out.println("1. To repeat code without writing it again");
-        System.out.println("2. To make code run faster");
-        System.out.println("3. To organize code into reusable blocks");
-        System.out.println("4. Just for fun");
-        System.out.print(userName + ", your answer: ");
+    private final List<Question> questions;
+    private int currentIndex;
 
-        int answer = readInt(scanner);
+    public QuizService(QuestionSource source, QuestionFactory factory, QuestionType questionType) {
+        List<QuestionData> data = source.loadQuestions();
 
-        if (answer == 3) {
-            quizScore++;
-            System.out.println("Correct! 🎉");
-        } else {
-            System.out.println("Incorrect. The correct answer is 3.");
+        List<QuestionData> filtered = new ArrayList<>();
+        for (QuestionData qd : data) {
+            if (qd.getQuestionType() == questionType) {
+                filtered.add(qd);
+            }
         }
 
-        System.out.println("Current quiz score: " + quizScore);
+        List<Question> tempQuestions = new ArrayList<>();
+        for (QuestionData qd : filtered) {
+            tempQuestions.add(factory.createQuestion(qd));
+        }
+
+        Collections.shuffle(tempQuestions);
+
+        if (tempQuestions.size() > 5) {
+            this.questions = new ArrayList<>(tempQuestions.subList(0, 5));
+        } else {
+            this.questions = tempQuestions;
+        }
+        this.currentIndex = 0;
     }
 
-    public int getQuizScore() {
-        return quizScore;
+    public boolean hasNextQuestion() {
+        return currentIndex < questions.size();
+    }
+
+    public Question nextQuestion() {
+        if (!hasNextQuestion()) {
+            throw new IllegalStateException("No more questions available.");
+        }
+        return questions.get(currentIndex++);
+    }
+
+    public boolean checkAnswer(Question question, String answer) {
+        return question.checkAnswer(answer);
+    }
+
+    public int totalQuestions() {
+        return questions.size();
     }
 }

@@ -1,0 +1,31 @@
+questionType,difficulty,questionText,leftOperand,rightOperand,operator,expectedAnswer
+MATH,easy,What is 5 + 3?,5,3,ADD,8
+MATH,easy,What is 10 - 4?,10,4,SUBTRACT,6
+MATH,easy,What is 6 * 2?,6,2,MULTIPLY,12
+MATH,easy,What is 8 / 2?,8,2,DIVIDE,4
+MATH,easy,What is 7 % 3?,7,3,MODULO,1
+MATH,medium,What is 12 + 8?,12,8,ADD,20
+MATH,medium,What is 15 - 7?,15,7,SUBTRACT,8
+MATH,medium,What is 9 * 4?,9,4,MULTIPLY,36
+MATH,medium,What is 20 / 5?,20,5,DIVIDE,4
+MATH,medium,What is 11 % 4?,11,4,MODULO,3
+MATH,hard,What is true AND false?,true,false,AND,false
+MATH,hard,What is true OR false?,true,false,OR,true
+MATH,hard,What is true XOR true?,true,true,XOR,false
+MATH,hard,What is false XOR true?,false,true,XOR,true
+MATH,hard,What is false AND false?,false,false,AND,false
+PROGRAMMING,easy,What is the result of 3 > 2?,,,,true
+PROGRAMMING,easy,What is the result of 5 == 5?,,,,true
+PROGRAMMING,easy,What is the result of 4 < 1?,,,,false
+PROGRAMMING,easy,What is the result of 10 % 2?,,,,0
+PROGRAMMING,easy,What is the result of 2 + 2?,,,,4
+PROGRAMMING,medium,What is the result of (5 + 3) * 2?,,,,16
+PROGRAMMING,medium,What is the result of 9 / 3?,,,,3
+PROGRAMMING,medium,What is the result of 7 % 4?,,,,3
+PROGRAMMING,medium,What is the result of 6 >= 6?,,,,true
+PROGRAMMING,medium,What is the result of 8 != 3?,,,,true
+PROGRAMMING,hard,What is the result of (10 > 5) && (3 < 1)?,,,,false
+PROGRAMMING,hard,What is the result of (4 == 4) || (2 > 5)?,,,,true
+PROGRAMMING,hard,What is the result of !(true)?,,,,false
+PROGRAMMING,hard,What is the result of (5 % 2 == 1)?,,,,true
+PROGRAMMING,hard,What is the result of (3 + 2 * 2)?,,,,7
