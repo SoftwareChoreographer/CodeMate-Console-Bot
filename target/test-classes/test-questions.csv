@@ -1,0 +1,4 @@
+questionType,questionText,leftOperand,rightOperand,operator,expectedAnswer
+MATH,5 + 3,5,3,ADD,8
+MATH,true && false,true,false,AND,false
+PROGRAMMING,What is the result of 3 > 2?,,,,true
